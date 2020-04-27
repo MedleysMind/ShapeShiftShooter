@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 197dc5a89b9cec149818882c6e692155
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - timerText: {instanceID: 0}
+  - Player: {instanceID: 0}
+  - ScoreBox: {instanceID: 0}
+  - ScoreBox2: {instanceID: 0}
+  - RestartMenu: {fileID: 4145448380840290101, guid: 0395f1b4bdd7ce8459ca3a7548bf5b2e,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
