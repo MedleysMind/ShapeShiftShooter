@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7682430319212735212}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.54, z: -1}
+  m_LocalPosition: {x: 0, y: 0.35, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7682430320528359445}
@@ -42,8 +42,8 @@ GameObject:
   - component: {fileID: 7682430320528359444}
   - component: {fileID: 7682430320528359657}
   - component: {fileID: 7682430319760793288}
-  - component: {fileID: 427178887975007916}
-  - component: {fileID: 1480650705173701702}
+  - component: {fileID: 6868891062674124246}
+  - component: {fileID: 70689293679950403}
   m_Layer: 0
   m_Name: Circle Player
   m_TagString: SWAP
@@ -59,8 +59,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7682430320528359447}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1438.0403, y: 537.5157, z: -1}
-  m_LocalScale: {x: 1600, y: 1600, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 2000, y: 2000, z: 0}
   m_Children:
   - {fileID: 7682430319212735213}
   m_Father: {fileID: 0}
@@ -153,7 +153,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.45
---- !u!114 &427178887975007916
+--- !u!114 &6868891062674124246
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,25 +162,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 7682430320528359447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31e6878ca1b4f844eacef9436815a154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firepoint: {fileID: 7682430319212735213}
-  BulletPrefab: {fileID: 6837846242187848664, guid: 9edd49c6233327646bd448e9979cb1fb,
-    type: 3}
---- !u!114 &1480650705173701702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7682430320528359447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77ed073c1ed84154bae0e0a5b2c84dca, type: 3}
+  m_Script: {fileID: 11500000, guid: ce59ba0d5b1dbf54bb62a2940a72ef55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 8460720924773378720, guid: 83cb434e2bc8546479ba46ca666d1e7a,
     type: 3}
   health: 10
   moveSpeed: 0.1
+--- !u!114 &70689293679950403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7682430320528359447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee014a47612540542a660abd4084eda0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firepoint: {fileID: 7682430319212735213}
+  firepoint1: {fileID: 0}
+  firepoint2: {fileID: 0}
+  firepoint3: {fileID: 0}
+  BulletPrefab: {fileID: 6837846242187848664, guid: 9edd49c6233327646bd448e9979cb1fb,
+    type: 3}
+  triangle: 0
+  square: 0
+  hexagon: 0
+  circle: 1

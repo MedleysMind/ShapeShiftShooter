@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 6837846242187848647}
   - component: {fileID: 6837846242187848644}
   - component: {fileID: 6837846242187848645}
-  - component: {fileID: 5616594635130478114}
-  - component: {fileID: 2107816105576469187}
+  - component: {fileID: 113951587765109456}
   - component: {fileID: 813732739141227818}
   - component: {fileID: -7189299395111230256}
   - component: {fileID: 1465488786541945031}
@@ -51,6 +50,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -107,7 +107,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &5616594635130478114
+--- !u!114 &113951587765109456
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,39 +116,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 6837846242187848664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95842c6e757010f4f99c6661d2ae9144, type: 3}
+  m_Script: {fileID: 11500000, guid: 9496ba557341d374baf1f1a0c0ae0467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ShootSound: {fileID: 813732739141227818}
-  speed: 10000
   rb: {fileID: 6837846242187848645}
-  Circledamage: 120
---- !u!61 &2107816105576469187
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6837846242187848664}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
-    newSize: {x: 5.48, y: 5.48}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
-  m_EdgeRadius: 0
+  damage: 120
+  triangle: 0
+  square: 0
+  hexagon: 0
+  circle: 1
 --- !u!82 &813732739141227818
 AudioSource:
   m_ObjectHideFlags: 0
@@ -260,6 +237,7 @@ TrailRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

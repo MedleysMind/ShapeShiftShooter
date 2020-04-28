@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5156591198849643398}
   - component: {fileID: 5156591198849643394}
   - component: {fileID: 6184959192931697636}
-  - component: {fileID: 5108727772634324080}
+  - component: {fileID: -6621947213744071369}
   m_Layer: 0
   m_Name: HexEnemy
   m_TagString: Enemy
@@ -136,7 +136,7 @@ PolygonCollider2D:
       - {x: 0.19506732, y: -0.33046553}
       - {x: 0.4038243, y: 0.002934338}
       - {x: 0.198672, y: 0.33323616}
---- !u!114 &5108727772634324080
+--- !u!114 &-6621947213744071369
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,9 +150,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 5675770532737136500, guid: 5bce7ab0a4298c9468226be8e484606c,
     type: 3}
-  Hexhealth: 720
-  speed: 800
-  Circledamage: 140
-  Squaredamage: 140
-  Hexdamage: 140
-  Tridamage: 140
+  Hexhealth: 240
+  damage: 120

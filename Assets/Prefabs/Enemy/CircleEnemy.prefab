@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8246353946490652296}
   - component: {fileID: 8246353946490652300}
   - component: {fileID: 3004872961471767190}
-  - component: {fileID: 8188665649050797326}
+  - component: {fileID: 1748087277639166776}
   m_Layer: 0
   m_Name: CircleEnemy
   m_TagString: Enemy
@@ -121,7 +121,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.33
---- !u!114 &8188665649050797326
+--- !u!114 &1748087277639166776
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,10 +135,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 9143877278108504074, guid: 24a143d9e8bad3140b66b42678351198,
     type: 3}
-  Circlehealth: 960
-  speed: 1400
+  Circlehealth: 240
   damage: 20
-  Squaredamage: 20
-  Hexdamage: 20
-  Circledamage: 20
-  Tridamage: 20

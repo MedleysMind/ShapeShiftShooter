@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Advertisements;
 
 public class GamePlayManager : MonoBehaviour
 {
@@ -9,19 +10,23 @@ public class GamePlayManager : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        if(PlayerController.dead == true){
+        if(PlayerManager.dead == true){
             StartCoroutine(PlayerDeath());
         }
     }
 
-    IEnumerator PlayerDeath(){
+    public IEnumerator PlayerDeath(){
         livesLost++;
+        PlayerManager.dead = false;
         yield return new WaitForSeconds (.5f);
-        Destroy (GameObject.FindWithTag ("MENU"));
+        // GameObject.Find ("MENU").SetActive(false);
         Instantiate (GameOver);
         Time.timeScale = 0f;
-        PlayerController.dead = false;
+        if (livesLost >= 3) {
+            livesLost = 0;
+            Advertisement.Show ();
+        }
     }
 }

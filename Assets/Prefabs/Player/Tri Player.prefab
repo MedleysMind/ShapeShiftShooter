@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2292878907422829629}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.1, y: 0.5, z: 0}
+  m_LocalPosition: {x: -0.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 6207612850453482000}
@@ -42,11 +42,11 @@ GameObject:
   - component: {fileID: 6207612850453482001}
   - component: {fileID: 6207612850453482220}
   - component: {fileID: 1570083196167330958}
-  - component: {fileID: 3789736708089408121}
-  - component: {fileID: -3579852410348610010}
+  - component: {fileID: 3652502312204666083}
+  - component: {fileID: 9031673599326509744}
   m_Layer: 0
-  m_Name: TP_End
-  m_TagString: SWAP
+  m_Name: Tri Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 6207612850453482002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1600, y: 1600, z: 0}
+  m_LocalScale: {x: 2000, y: 2000, z: 0}
   m_Children:
   - {fileID: 6207612851704242408}
   - {fileID: 387219345065002936}
@@ -167,7 +167,7 @@ PolygonCollider2D:
     - - {x: -0.4648482, y: 0.44797233}
       - {x: -0.0022490802, y: -0.47709963}
       - {x: 0.45751408, y: 0.44868365}
---- !u!114 &3789736708089408121
+--- !u!114 &3652502312204666083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,15 +176,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 6207612850453482002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fe2e3ce9c3d0ce4a931b3827046e3d2, type: 3}
+  m_Script: {fileID: 11500000, guid: ee014a47612540542a660abd4084eda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firepoint: {fileID: 6207612851704242408}
   firepoint1: {fileID: 387219345065002936}
   firepoint2: {fileID: 6584666569625613597}
+  firepoint3: {fileID: 0}
   BulletPrefab: {fileID: 3767536287365772152, guid: 68da41a9a146afc468903a44b1681012,
     type: 3}
---- !u!114 &-3579852410348610010
+  triangle: 1
+  square: 0
+  hexagon: 0
+  circle: 0
+--- !u!114 &9031673599326509744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,7 +198,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6207612850453482002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77ed073c1ed84154bae0e0a5b2c84dca, type: 3}
+  m_Script: {fileID: 11500000, guid: ce59ba0d5b1dbf54bb62a2940a72ef55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 3027175263498362851, guid: 73f36897dc5f3704ab7a2d94806ea94e,
@@ -224,7 +229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6207612851704242409}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.9, z: -1}
+  m_LocalPosition: {x: 0, y: 0.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 6207612850453482000}
@@ -254,7 +259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6626893302127447560}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.1, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 6207612850453482000}

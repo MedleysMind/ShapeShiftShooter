@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class SpawnManager : MonoBehaviour
 {
     // Reference to the player's heatlh.
     public GameObject square, circle, tri, hex;                // The enemy prefab to be spawned.

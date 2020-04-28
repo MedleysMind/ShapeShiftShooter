@@ -11,12 +11,16 @@ using UnityEngine.Advertisements;
 public class MenuButtons : MonoBehaviour
 { 
   // private PlayerProgress playerProgress;
+    public GameObject PauseMenu;
+
   
 //Unity Ads
     string gameId = "3171681";
   //  bool testMode = true;
     private void Start()
     {
+        // GameObject.Find ("LevelSelect").SetActive(false);
+
         //  LoadPlayerProgress();
 
 //Unity Ads
@@ -33,6 +37,8 @@ public class MenuButtons : MonoBehaviour
     }
     public void LevelSelect ()
     {
+        GameObject.Find ("MainMenu").SetActive(false);
+        GameObject.Find ("LevelSelect").SetActive(true);
         SceneManager.LoadScene(2);
     }
     public void BackToMenu()
@@ -49,7 +55,24 @@ public class MenuButtons : MonoBehaviour
     {
         Application.Quit();
     }
-
+public void OpenMenu()
+    {
+        if(PauseMenu != null)
+        {
+            PauseMenu.SetActive(true);
+        }
+        Instantiate(PauseMenu);
+        Time.timeScale = 0f;
+    }
+    public void CloseMenu()
+    {
+        if (PauseMenu == true)
+        {
+            PauseMenu.SetActive(false);
+        }
+        Destroy(transform.parent.gameObject);
+        Time.timeScale = 1f;
+    }
  /*   public void SubmitNewPlayerScore(int newScore)
     {
         if (newScore > playerProgress.highestScore)

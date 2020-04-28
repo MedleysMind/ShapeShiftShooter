@@ -28,7 +28,7 @@ public class HexEnemy : MonoBehaviour
         Hexhealth -= Hexdamage;
         
 
-        if (Hexhealth <= 0)
+        if (Hexhealth == 0)
         {
 
             Die();
@@ -40,7 +40,8 @@ public class HexEnemy : MonoBehaviour
         {
             // Instantiate(deathEffect, transform.position, Quaternion.identity);
             ScoreKeeper.scoreValue += 350;
-            YourScore.scoreValue += 350;
+            ScoreKeeper.shapeList.Add(1);
+
             Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }
@@ -48,10 +49,10 @@ public class HexEnemy : MonoBehaviour
 
      private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        PlayerController PlayerController = hitInfo.GetComponent<PlayerController>();
-        if (PlayerController != null)
+        PlayerManager PlayerManager = hitInfo.GetComponent<PlayerManager>();
+        if (PlayerManager != null)
         {
-            PlayerController.TakeDamage(damage);
+            PlayerManager.TakeDamage(damage);
             Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }

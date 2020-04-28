@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7203630782901619682}
   - component: {fileID: 7203630782901619686}
   - component: {fileID: 8188379501957626752}
-  - component: {fileID: 4543039049550239086}
+  - component: {fileID: 1854648918708672599}
   m_Layer: 0
   m_Name: TriEnemy
   m_TagString: Enemy
@@ -133,7 +133,7 @@ PolygonCollider2D:
     - - {x: -0.34636822, y: 0.2964991}
       - {x: -0.0030682664, y: -0.3035562}
       - {x: 0.3417272, y: 0.2978745}
---- !u!114 &4543039049550239086
+--- !u!114 &1854648918708672599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,6 +147,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 4758250982292942002, guid: 5368b7b4472d7064ebaa677a808e9600,
     type: 3}
-  Player: {fileID: 0}
-  Trihealth: 720
+  Trihealth: 240
   damage: 80

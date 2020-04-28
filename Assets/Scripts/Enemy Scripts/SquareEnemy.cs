@@ -11,24 +11,13 @@ public class SquareEnemy : MonoBehaviour
 
     private Transform target;
 
-    void Start()
-    {
-
-    }
-    private void Update()
-    {
-        // target = GameObject.FindWithTag("Player").GetComponent<Transform>();
-
-        // transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-
-    }
 
     public void TakeSquareDamage(int Squaredamage)
     {
        
         Squarehealth -= Squaredamage;
 
-        if (Squarehealth <= 0)
+        if (Squarehealth == 0)
         {
 
             Die();
@@ -39,18 +28,19 @@ public class SquareEnemy : MonoBehaviour
     {
         {
             ScoreKeeper.scoreValue += 100;
-            YourScore.scoreValue += 100;
+
             Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
+            ScoreKeeper.shapeList.Add(1);
             
         }
     }
  private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        PlayerController PlayerController = hitInfo.GetComponent<PlayerController>();
-        if (PlayerController != null)
+        PlayerManager PlayerManager = hitInfo.GetComponent<PlayerManager>();
+        if (PlayerManager != null)
         {
-            PlayerController.TakeDamage(damage);
+            PlayerManager.TakeDamage(damage);
             Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236099765798561727}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.9, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 5271953770412032636}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541026454128045152}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 5271953770412032636}
@@ -72,11 +72,11 @@ GameObject:
   - component: {fileID: 5271953770412032637}
   - component: {fileID: 5271953770412032640}
   - component: {fileID: 4208850294792047345}
-  - component: {fileID: 5889596050997562935}
-  - component: {fileID: 8469298808472658862}
+  - component: {fileID: 3940990221575232161}
+  - component: {fileID: 8181910686802754744}
   m_Layer: 0
-  m_Name: HP_End
-  m_TagString: SWAP
+  m_Name: Hex Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +90,7 @@ Transform:
   m_GameObject: {fileID: 5271953770412032638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1600, y: 1600, z: 0}
+  m_LocalScale: {x: 2000, y: 2000, z: 0}
   m_Children:
   - {fileID: 5271953771711555716}
   - {fileID: 7501681365094051654}
@@ -200,7 +200,7 @@ PolygonCollider2D:
       - {x: 0.23642686, y: -0.40757594}
       - {x: 0.47642058, y: 0.0033397276}
       - {x: 0.24007787, y: 0.4137227}
---- !u!114 &5889596050997562935
+--- !u!114 &3940990221575232161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,15 +209,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 5271953770412032638}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d75bae2946489904c945fb5610cc2b34, type: 3}
+  m_Script: {fileID: 11500000, guid: ee014a47612540542a660abd4084eda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firepoint: {fileID: 5271953771711555716}
   firepoint1: {fileID: 7501681365094051654}
   firepoint2: {fileID: 42802758143312578}
+  firepoint3: {fileID: 0}
   BulletPrefab: {fileID: 6885647973232573242, guid: 12e8c23b8bf6b1d428c2feb55a01ebb9,
     type: 3}
---- !u!114 &8469298808472658862
+  triangle: 0
+  square: 0
+  hexagon: 1
+  circle: 0
+--- !u!114 &8181910686802754744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,7 +231,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5271953770412032638}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77ed073c1ed84154bae0e0a5b2c84dca, type: 3}
+  m_Script: {fileID: 11500000, guid: ce59ba0d5b1dbf54bb62a2940a72ef55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 8507086454681403562, guid: 2eeeb461b451c2648a7d49c7df4b0207,
@@ -257,7 +262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5271953771711555717}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.5, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5271953770412032636}

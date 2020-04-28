@@ -7,7 +7,6 @@ public class SwapButton : MonoBehaviour
     public GameObject explosion;
     public GameObject player;
     private float timestamp = 0;
-    int i = 0;
 
     // Start is called before the first frame update
     public void CharSwap()
@@ -27,7 +26,7 @@ public class SwapButton : MonoBehaviour
             Destroy(GameObject.Find("Hex Player(Clone)"));
             Destroy(GameObject.Find("Square Player(Clone)"));
             //calls new player char to spawn
-            Instantiate(player, PlayerController.playerPos, Quaternion.identity);
+            Instantiate(player, PlayerManager.playerPos, Quaternion.identity);
         }
 
     }
@@ -37,7 +36,7 @@ public class SwapButton : MonoBehaviour
         if (Time.time >= timestamp)
         {
             // Destroy (GameObject.FindWithTag ("SWAP"));
-            Instantiate(explosion, PlayerController.playerPos, Quaternion.identity);
+            Instantiate(explosion, PlayerManager.playerPos, Quaternion.identity);
         }
     }
 }

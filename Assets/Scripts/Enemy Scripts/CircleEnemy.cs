@@ -28,7 +28,7 @@ public class CircleEnemy : MonoBehaviour
         Circlehealth -= Circledamage;
         
 
-        if (Circlehealth <= 0)
+        if (Circlehealth == 0)
         {
             
             Die();
@@ -39,8 +39,7 @@ public class CircleEnemy : MonoBehaviour
     {
         {
             ScoreKeeper.scoreValue += 50;
-            YourScore.scoreValue += 50;
-            // anim.Play("Death Animation");
+            ScoreKeeper.shapeList.Add(1);
             Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
             
@@ -49,10 +48,10 @@ public class CircleEnemy : MonoBehaviour
 
  private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        PlayerController PlayerController = hitInfo.GetComponent<PlayerController>();
-        if (PlayerController != null)
+        PlayerManager PlayerManager = hitInfo.GetComponent<PlayerManager>();
+        if (PlayerManager != null)
         {
-            PlayerController.TakeDamage(damage);
+            PlayerManager.TakeDamage(damage);
             Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }

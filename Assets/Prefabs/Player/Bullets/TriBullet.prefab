@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3767536287365772135}
   - component: {fileID: 3767536287365772132}
   - component: {fileID: 3767536287365772133}
-  - component: {fileID: 6225804634116705259}
   - component: {fileID: 3211696189517305907}
   - component: {fileID: -1447465258118428484}
   - component: {fileID: -3313924640487114459}
+  - component: {fileID: 8724594866210671631}
   m_Layer: 0
   m_Name: TriBullet
   m_TagString: BULLET
@@ -50,6 +50,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -106,22 +107,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &6225804634116705259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3767536287365772152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 351daea07343f5943a55bf04f6244865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShootSound: {fileID: -1447465258118428484}
-  speed: 6000
-  rb: {fileID: 3767536287365772133}
-  Tridamage: 120
 --- !u!60 &3211696189517305907
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -264,6 +249,7 @@ TrailRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -345,3 +331,22 @@ TrailRenderer:
   m_MinVertexDistance: 3
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &8724594866210671631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767536287365772152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9496ba557341d374baf1f1a0c0ae0467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShootSound: {fileID: -1447465258118428484}
+  rb: {fileID: 3767536287365772133}
+  damage: 120
+  triangle: 1
+  square: 0
+  hexagon: 0
+  circle: 0

@@ -25,17 +25,11 @@ public class GameOver : MonoBehaviour {
         Destroy (gameObject);
     }
     public void Restart () {
-        HighScore.highscore -= HighScore.highscore;
         Time.timeScale = 0f;
-        // Instantiate(RestartMenu);
-        // Destroy(gameObject);
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        if (GamePlayManager.livesLost >= 3) {
-            GamePlayManager.livesLost = 0;
-            Advertisement.Show ();
-        } else {
+            ScoreKeeper.scoreValue = 0;
+            ScoreKeeper.shapeList.Clear();
+        
             SceneManager.LoadScene (1);
-        }
 
     }
     // public void Restart2 () {

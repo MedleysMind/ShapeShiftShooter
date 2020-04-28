@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerManager : MonoBehaviour {
     // private GameObject GameOver;
     public GameObject explosion;
     public static bool dead;
     public static Vector3 playerPos;
-     private Vector2 mousePosition;
+    private Vector2 mousePosition;
     public int health = 10;
     public float moveSpeed = 0.1f;
-    void Start(){
-        // GameOver = GameObject.FindWithTag("GameOver");
-    }
+    
     void Update () {
-        playerMovement();
+        playerMovement ();
         playerPos = transform.position;
     }
     //Health System
@@ -28,13 +26,24 @@ public class PlayerController : MonoBehaviour {
     }
     public void PlayerDeath () {
         Instantiate (explosion, gameObject.transform.position, gameObject.transform.rotation);
-        HighScore.highscore += ScoreKeeper.scoreValue;
         Destroy (gameObject);
         dead = true;
     }
-    public void playerMovement(){
+    public void playerMovement () {
+
         mousePosition = Input.mousePosition;
-            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
+        mousePosition = Camera.main.ScreenToWorldPoint (mousePosition);
+        transform.position = Vector2.Lerp (transform.position, mousePosition, moveSpeed);
+        
+        // if (transform.position.y < -5575 || transform.position.y > -5300) {
+        //   transform.position =  new Vector2(playerPos.x, -5575);
+        // }
+        // if (transform.position.x > 4345) {
+        //    transform.position = new Vector2(4345,playerPos.y);
+        // }
+        // if (transform.position.x < -4345) {
+        //  transform.position =  new Vector2(-4345,playerPos.y);
+        // }
+
     }
 }
