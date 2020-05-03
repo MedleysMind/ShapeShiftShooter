@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletManager : MonoBehaviour {
-    public AudioSource ShootSound;
-    private float speed;
+    public AudioSource ShootSound, explosionSound;
+    public float speed = 100000;
     public Rigidbody2D rb;
     public int damage = 120;
     public bool triangle, square, hexagon, circle;
+    public GameObject explosion;
 
     void Start () {
         //  ScoreKeeper.scoreValue -= 5;
         //YourScore.scoreValue -= 5;
         ShootSound.Play ();
-        ShapeDetector ();
-        rb.velocity = transform.right * speed;
+    // ShapeDetector ();
+        
+        rb.velocity = transform.right * speed * 100;
         Object.Destroy (gameObject, 3f);
     }
 
@@ -23,61 +25,76 @@ public class BulletManager : MonoBehaviour {
         CircleEnemy Circleenemy = hitInfo.GetComponent<CircleEnemy> ();
         if (Circleenemy != null) {
             if (circle == true) {
-                ScoreCalc (10);
+                ScoreCalc (25);
                 Circleenemy.TakeCircleDamage (damage);
-                Destroy (gameObject);
+                BulletEffect ();
+
             } else {
-                Destroy (gameObject);
+                BulletEffect ();
+
             }
         }
         SquareEnemy Squareenemy = hitInfo.GetComponent<SquareEnemy> ();
         if (Squareenemy != null) {
             if (square == true) {
-                ScoreCalc (10);
+                ScoreCalc (25);
                 Squareenemy.TakeSquareDamage (damage);
-                Destroy (gameObject);
+                BulletEffect ();
+
             } else {
 
-                Destroy (gameObject);
+                BulletEffect ();
+
             }
         }
         TriEnemy Trienemy = hitInfo.GetComponent<TriEnemy> ();
         if (Trienemy != null) {
             if (triangle == true) {
-                ScoreCalc (20);
+                ScoreCalc (25);
                 Trienemy.TakeTriDamage (damage);
-                Destroy (gameObject);
+                BulletEffect ();
+
             } else {
-                Destroy (gameObject);
+                BulletEffect ();
+
             }
         }
         HexEnemy Hexenemy = hitInfo.GetComponent<HexEnemy> ();
         if (Hexenemy != null) {
             if (hexagon == true) {
-                ScoreCalc (30);
+                ScoreCalc (50);
                 Hexenemy.TakeHexDamage (damage);
-                Destroy (gameObject);
+                BulletEffect ();
+
             } else {
-                Destroy (gameObject);
+                BulletEffect ();
             }
         }
 
     }
-    public void ShapeDetector () {
-        if (circle == true) {
-            speed = 16000f;
+    public void BulletEffect () {
+        // explosionSound.Play();
+            LightManager.lightPos = LightManager.lightPos + 6;
 
-        }
-        if (square == true) {
-            speed = 8000f;
-        }
-        if (hexagon == true) {
-            speed = 20000f;
-        }
-        if (triangle == true) {
-            speed = 12000f;
-        }
+        Instantiate (explosion, gameObject.transform.position, gameObject.transform.rotation);
+        // Play bullet explosion sound
+        Destroy (this.gameObject);
     }
+    // public void ShapeDetector () {
+    //     if (circle == true) {
+    //         speed = 16000f;
+
+    //     }
+    //     if (square == true) {
+    //         speed = 8000f;
+    //     }
+    //     if (hexagon == true) {
+    //         speed = 60000f;
+    //     }
+    //     if (triangle == true) {
+    //         speed = 12000f;
+    //     }
+    // }
     public void ScoreCalc (int value) {
         ScoreKeeper.scoreValue += value;
     }

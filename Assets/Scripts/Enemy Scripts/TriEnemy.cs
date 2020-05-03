@@ -5,7 +5,7 @@ using UnityEngine;
 public class TriEnemy : MonoBehaviour
 {
     public GameObject explosion;
-    public int Trihealth = 240;
+    public int Trihealth = 480;
     public int damage = 80;
 
     private Transform target;
@@ -25,7 +25,9 @@ public class TriEnemy : MonoBehaviour
     {
         {
             // Instantiate(deathEffect, transform.position, Quaternion.identity);
-            ScoreKeeper.scoreValue += 250;
+            LightManager.lightPos = LightManager.lightPos + 60;
+
+            ScoreKeeper.scoreValue += 300;
             ScoreKeeper.shapeList.Add(1);
 
             Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
@@ -39,6 +41,13 @@ public class TriEnemy : MonoBehaviour
         if (PlayerManager != null)
         {
             PlayerManager.TakeDamage(damage);
+            Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(gameObject);
+        }
+         Despawner Despawner = hitInfo.GetComponent<Despawner>();
+        if (Despawner != null)
+        {
+            // Despawner.TakeDamage(damage);
             Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }

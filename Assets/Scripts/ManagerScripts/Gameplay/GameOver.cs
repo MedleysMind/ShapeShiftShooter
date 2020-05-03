@@ -11,7 +11,8 @@ using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour {
     public Text timerText;
-    public GameObject Player, ScoreBox, ScoreBox2, RestartMenu;
+    public GameObject Player;
+    // , ScoreBox, ScoreBox2, RestartMenu;
     //Unity Ads
     string gameId = "3171681";
     // bool testMode = true;
@@ -25,35 +26,31 @@ public class GameOver : MonoBehaviour {
         Destroy (gameObject);
     }
     public void Restart () {
-        Time.timeScale = 0f;
-            ScoreKeeper.scoreValue = 0;
-            ScoreKeeper.shapeList.Clear();
-        
-            SceneManager.LoadScene (1);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene (1);
 
     }
     // public void Restart2 () {
     //     SceneManager.LoadScene (1);
     // }
+    private GameObject enemy;
     public void KeepGoing () {
-
-        Instantiate (Player);
-        Destroy (ScoreBox);
-        Destroy (ScoreBox2);
-
-        //     GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
-        //     foreach (GameObject go in gos)
-        //        Destroy(go);
+Advertisement.Show ();
         Time.timeScale = 1f;
+       GameObject.FindGameObjectWithTag("Enemy");
+    //    Destroy();
+        Instantiate (Player, gameObject.transform.position, gameObject.transform.rotation);
         Destroy (transform.parent.gameObject);
 
     }
     public void BackToMain () {
+
         Advertisement.Show ();
+        ScoreKeeper.scoreValue = 0;
         SceneManager.LoadScene (0);
     }
-    public void BackToSelect () {
-        Advertisement.Show ();
-        SceneManager.LoadScene (1);
-    }
+    // public void BackToSelect () {
+    //     Advertisement.Show ();
+    //     SceneManager.LoadScene (1);
+    // }
 }

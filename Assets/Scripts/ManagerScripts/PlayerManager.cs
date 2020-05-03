@@ -7,13 +7,20 @@ public class PlayerManager : MonoBehaviour {
     public GameObject explosion;
     public static bool dead;
     public static Vector3 playerPos;
-    private Vector2 mousePosition;
+    private Vector2 mousePosition, newPos, screenBounds;
     public int health = 10;
     public float moveSpeed = 0.1f;
-    
+
+void Start()    {
+    screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+}
     void Update () {
         playerMovement ();
         playerPos = transform.position;
+    }
+    void LateUpdate(){
+        // newPos = Mathf.Clamp(newPos.x, screenBounds.x, screenBounds.x * -1);
+        // transform.position = newPos;
     }
     //Health System
     public void TakeDamage (int damage) {
@@ -33,7 +40,10 @@ public class PlayerManager : MonoBehaviour {
 
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint (mousePosition);
-        transform.position = Vector2.Lerp (transform.position, mousePosition, moveSpeed);
+        // transform.position = new Vector2 (mousePosition.x,transform.position.y);
+        newPos = new Vector2 (mousePosition.x,transform.position.y);
+        transform.position =  Vector2.Lerp (transform.position,newPos, moveSpeed);
+
         
         // if (transform.position.y < -5575 || transform.position.y > -5300) {
         //   transform.position =  new Vector2(playerPos.x, -5575);

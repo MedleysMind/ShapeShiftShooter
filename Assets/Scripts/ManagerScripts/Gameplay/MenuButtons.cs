@@ -1,79 +1,69 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Advertisements;
+using UnityEngine.SceneManagement;
 
 /*Main Menu Button Controls
  * March 26, 2019
  * Patrick Medley */
 
-public class MenuButtons : MonoBehaviour
-{ 
-  // private PlayerProgress playerProgress;
-    public GameObject PauseMenu;
-
-  
-//Unity Ads
+public class MenuButtons : MonoBehaviour {
+    // private PlayerProgress playerProgress;
+    public GameObject PauseMenu,LevelSelectMenu,MainMenuUI;
+    //Unity Ads
     string gameId = "3171681";
-  //  bool testMode = true;
-    private void Start()
-    {
-        // GameObject.Find ("LevelSelect").SetActive(false);
-
+    //  bool testMode = true;
+    private void Start () {
         //  LoadPlayerProgress();
+        //Unity Ads
+        Advertisement.Initialize (gameId);
+    }
+    public void Endless () {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene (1);
 
-//Unity Ads
-        Advertisement.Initialize(gameId);
     }
-    public void Endless()
-    {
-        SceneManager.LoadScene(1);
+    public void EndLevel () {
+        //  Advertisement.Show();
+        SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
     }
-    public void EndLevel()
-    {
-      //  Advertisement.Show();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    public void LevelSelect () {
+        // LevelSelectMenu.SetActive (true);
+        Instantiate(LevelSelectMenu);
+        Destroy(MainMenuUI);
+        // SceneManager.LoadScene(2);
     }
-    public void LevelSelect ()
-    {
-        GameObject.Find ("MainMenu").SetActive(false);
-        GameObject.Find ("LevelSelect").SetActive(true);
-        SceneManager.LoadScene(2);
+    public void CloseLevelMenu(){
+         Instantiate(MainMenuUI);
+        Destroy(LevelSelectMenu);
     }
-    public void BackToMenu()
-    {
-       // Advertisement.Show();
-        SceneManager.LoadScene(0);
+    public void BackToMenu () {
+        // Advertisement.Show();
+        SceneManager.LoadScene (0);
     }
-    public void Back()
-    {
-       // Advertisement.Show();
-        SceneManager.LoadScene(1);
+    public void Back () {
+        // Advertisement.Show();
+        SceneManager.LoadScene (1);
     }
-    public void ExitGame()
-    {
-        Application.Quit();
+    public void ExitGame () {
+        Application.Quit ();
     }
-public void OpenMenu()
-    {
-        if(PauseMenu != null)
-        {
-            PauseMenu.SetActive(true);
+    public void OpenMenu () {
+        if (PauseMenu != null) {
+            PauseMenu.SetActive (true);
         }
-        Instantiate(PauseMenu);
+        Instantiate (PauseMenu);
         Time.timeScale = 0f;
     }
-    public void CloseMenu()
-    {
-        if (PauseMenu == true)
-        {
-            PauseMenu.SetActive(false);
+    public void CloseMenu () {
+        if (PauseMenu == true) {
+            PauseMenu.SetActive (false);
         }
-        Destroy(transform.parent.gameObject);
+        Destroy (transform.parent.gameObject);
         Time.timeScale = 1f;
     }
- /*   public void SubmitNewPlayerScore(int newScore)
+    /*   public void SubmitNewPlayerScore(int newScore)
     {
         if (newScore > playerProgress.highestScore)
         {

@@ -46,10 +46,11 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,6 +98,6 @@ MonoBehaviour:
   circle: {fileID: 8246353946490652297, guid: b75c7b627b798504b81d2a9d8468e38e, type: 3}
   tri: {fileID: 7203630782901619683, guid: 3af6467117df97a4cab8dd343c1a250a, type: 3}
   hex: {fileID: 5156591198849643399, guid: d21273e4b9e9b2042b9d3c6d40bab32c, type: 3}
-  spawnRate: 3
-  spawnPoints:
-  - {fileID: 1784278089378977734}
+  boss: {fileID: 0}
+  BossSpawner: 0
+  BossRequirement: 0

@@ -27,11 +27,13 @@ public class SquareEnemy : MonoBehaviour
     void Die()
     {
         {
-            ScoreKeeper.scoreValue += 100;
+            LightManager.lightPos = LightManager.lightPos + 60;
 
+            ScoreKeeper.scoreValue += 200;
+
+            ScoreKeeper.shapeList.Add(1);
             Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
-            ScoreKeeper.shapeList.Add(1);
             
         }
     }
@@ -41,6 +43,13 @@ public class SquareEnemy : MonoBehaviour
         if (PlayerManager != null)
         {
             PlayerManager.TakeDamage(damage);
+            Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(gameObject);
+        }
+         Despawner Despawner = hitInfo.GetComponent<Despawner>();
+        if (Despawner != null)
+        {
+            // Despawner.TakeDamage(damage);
             Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }

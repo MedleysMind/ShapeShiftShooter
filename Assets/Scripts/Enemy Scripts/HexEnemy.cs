@@ -11,37 +11,21 @@ public class HexEnemy : MonoBehaviour
 
     private Transform target;
 
-    void Start()
-    {
-
-    }
-    
-    private void Update()
-    {
-        // target = GameObject.FindWithTag("Player").GetComponent<Transform>();
-
-        // transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-    }
-
     public void TakeHexDamage(int Hexdamage)
     {
         Hexhealth -= Hexdamage;
-        
-
         if (Hexhealth == 0)
         {
-
             Die();
-
         }
     }
     void Die()
     {
         {
-            // Instantiate(deathEffect, transform.position, Quaternion.identity);
-            ScoreKeeper.scoreValue += 350;
-            ScoreKeeper.shapeList.Add(1);
+            LightManager.lightPos = LightManager.lightPos + 60;
 
+            ScoreKeeper.scoreValue += 400;
+            ScoreKeeper.shapeList.Add(1);
             Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }
@@ -53,6 +37,13 @@ public class HexEnemy : MonoBehaviour
         if (PlayerManager != null)
         {
             PlayerManager.TakeDamage(damage);
+            Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(gameObject);
+        }
+         Despawner Despawner = hitInfo.GetComponent<Despawner>();
+        if (Despawner != null)
+        {
+            // Despawner.TakeDamage(damage);
             Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }
