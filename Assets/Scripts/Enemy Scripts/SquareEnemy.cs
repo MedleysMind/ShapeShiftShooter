@@ -5,6 +5,7 @@ using UnityEngine;
 public class SquareEnemy : MonoBehaviour
 {
     public GameObject explosion;
+    public AudioSource explosionSound;
     //  public Transform Player;
     public int Squarehealth = 240;
     public int damage = 40;
@@ -39,6 +40,8 @@ public class SquareEnemy : MonoBehaviour
     }
  private void OnTriggerEnter2D(Collider2D hitInfo)
     {
+            explosionSound.Play();
+
         PlayerManager PlayerManager = hitInfo.GetComponent<PlayerManager>();
         if (PlayerManager != null)
         {

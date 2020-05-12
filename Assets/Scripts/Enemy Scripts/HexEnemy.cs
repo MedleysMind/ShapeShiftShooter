@@ -5,6 +5,7 @@ using UnityEngine;
 public class HexEnemy : MonoBehaviour
 {
     public GameObject explosion;
+    public AudioSource explosionSound;
     // public Transform Player;
     public int Hexhealth = 240;
     public int damage = 120;
@@ -22,6 +23,7 @@ public class HexEnemy : MonoBehaviour
     void Die()
     {
         {
+            
             LightManager.lightPos = LightManager.lightPos + 60;
 
             ScoreKeeper.scoreValue += 400;
@@ -33,6 +35,7 @@ public class HexEnemy : MonoBehaviour
 
      private void OnTriggerEnter2D(Collider2D hitInfo)
     {
+        explosionSound.Play();
         PlayerManager PlayerManager = hitInfo.GetComponent<PlayerManager>();
         if (PlayerManager != null)
         {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class TriEnemy : MonoBehaviour
 {
     public GameObject explosion;
+    public AudioSource explosionSound;
     public int Trihealth = 480;
     public int damage = 80;
 
@@ -37,6 +38,8 @@ public class TriEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
+            explosionSound.Play();
+
         PlayerManager PlayerManager = hitInfo.GetComponent<PlayerManager>();
         if (PlayerManager != null)
         {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour {
     // private GameObject GameOver;
     public GameObject explosion;
+    public AudioSource explosionSound;
     public static bool dead;
     public static Vector3 playerPos;
     private Vector2 mousePosition, newPos, screenBounds;
@@ -32,6 +33,7 @@ void Start()    {
         }
     }
     public void PlayerDeath () {
+        explosionSound.Play();
         Instantiate (explosion, gameObject.transform.position, gameObject.transform.rotation);
         Destroy (gameObject);
         dead = true;

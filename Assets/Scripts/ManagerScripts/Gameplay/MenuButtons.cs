@@ -10,7 +10,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour {
     // private PlayerProgress playerProgress;
-    public GameObject PauseMenu,LevelSelectMenu,MainMenuUI;
+    public GameObject PauseMenu, HighscoreMenu, MainMenuUI, TutorialMenu, CreditMenu;
+    private GameObject creditsPanel;
     //Unity Ads
     string gameId = "3171681";
     //  bool testMode = true;
@@ -18,6 +19,8 @@ public class MenuButtons : MonoBehaviour {
         //  LoadPlayerProgress();
         //Unity Ads
         Advertisement.Initialize (gameId);
+
+        //    creditsPanel = GameObject.Find("Credits");
     }
     public void Endless () {
         Time.timeScale = 1f;
@@ -28,15 +31,27 @@ public class MenuButtons : MonoBehaviour {
         //  Advertisement.Show();
         SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
     }
-    public void LevelSelect () {
+    public void HighScore () {
         // LevelSelectMenu.SetActive (true);
-        Instantiate(LevelSelectMenu);
-        Destroy(MainMenuUI);
+        Instantiate (HighscoreMenu);
+        Destroy (MainMenuUI);
         // SceneManager.LoadScene(2);
     }
-    public void CloseLevelMenu(){
-         Instantiate(MainMenuUI);
-        Destroy(LevelSelectMenu);
+    public void Tutorial () {
+        // LevelSelectMenu.SetActive (true);
+        // Instantiate (TutorialMenu);
+        // SceneManager.LoadScene(2);
+    }
+    public void Credit () {
+
+        // Instantiate (CreditMenu);
+        // CreditMenu.SetActive (false);
+        // creditsPanel.SetActive (!false);
+
+    }
+    public void CloseHighScoremenu () {
+        Instantiate (MainMenuUI);
+        Destroy (HighscoreMenu);
     }
     public void BackToMenu () {
         // Advertisement.Show();

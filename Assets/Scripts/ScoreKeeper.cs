@@ -15,7 +15,7 @@ void Start(){
     ScoreKeeper.shapeList.Clear();
          ScoreKeeper.scoreValue = 0;
 }
-    public void Update () {
+     void Update () {
         totalShapes = shapeList.Count;
         score.text = scoreValue.ToString ();
         shapes.text = totalShapes.ToString ();

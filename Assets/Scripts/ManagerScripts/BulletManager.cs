@@ -14,15 +14,16 @@ public class BulletManager : MonoBehaviour {
         //  ScoreKeeper.scoreValue -= 5;
         //YourScore.scoreValue -= 5;
         ShootSound.Play ();
-    // ShapeDetector ();
-        
+        // ShapeDetector ();
+
         rb.velocity = transform.right * speed * 100;
         Object.Destroy (gameObject, 3f);
     }
 
     private void OnTriggerEnter2D (Collider2D hitInfo) {
-
+        explosionSound.Play ();
         CircleEnemy Circleenemy = hitInfo.GetComponent<CircleEnemy> ();
+
         if (Circleenemy != null) {
             if (circle == true) {
                 ScoreCalc (25);
@@ -73,10 +74,10 @@ public class BulletManager : MonoBehaviour {
 
     }
     public void BulletEffect () {
-        // explosionSound.Play();
-            LightManager.lightPos = LightManager.lightPos + 6;
+        LightManager.lightPos = LightManager.lightPos + 6;
 
         Instantiate (explosion, gameObject.transform.position, gameObject.transform.rotation);
+
         // Play bullet explosion sound
         Destroy (this.gameObject);
     }

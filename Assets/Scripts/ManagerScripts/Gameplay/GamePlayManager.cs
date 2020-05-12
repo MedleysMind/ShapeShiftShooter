@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.Advertisements;
 
 public class GamePlayManager : MonoBehaviour {
-    public GameObject GameOver, Light;
+    public GameObject GameOverMenu, Light;
     public static float livesLost;
+    public static float restartCount;
     // private Light2D LightScript;
 
     // Update is called once per frame
@@ -25,7 +26,7 @@ public class GamePlayManager : MonoBehaviour {
         PlayerManager.dead = false;
         yield return new WaitForSeconds (.5f);
         // GameObject.Find ("MENU").SetActive(false);
-        Instantiate (GameOver);
+        Instantiate (GameOverMenu);
         GameObject.Find ("Portrait_GameplayUI").SetActive (false);
         Time.timeScale = 0f;
         if (livesLost >= 3) {

@@ -20,14 +20,27 @@ public class GameOver : MonoBehaviour {
     void Start () {
         Advertisement.Initialize (gameId);
         Time.timeScale = 0f;
+        // deaths = 0;
     }
+    // void Update(){
+    //     // Debug.Log(deaths);
+    // }
     public void Begin () {
         //Time.timeScale = 1f;
         Destroy (gameObject);
     }
     public void Restart () {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene (1);
+        GamePlayManager.restartCount++;
+        if (GamePlayManager.restartCount == 3) {
+            GamePlayManager.restartCount = 0;
+            Advertisement.Show ();
+            // Time.timeScale = 1f;
+            // SceneManager.LoadScene (1);
+        } else {
+
+            Time.timeScale = 1f;
+            SceneManager.LoadScene (1);
+        }
 
     }
     // public void Restart2 () {
@@ -35,10 +48,10 @@ public class GameOver : MonoBehaviour {
     // }
     private GameObject enemy;
     public void KeepGoing () {
-Advertisement.Show ();
+        Advertisement.Show ();
         Time.timeScale = 1f;
-       GameObject.FindGameObjectWithTag("Enemy");
-    //    Destroy();
+        GameObject.FindGameObjectWithTag ("Enemy");
+        //    Destroy();
         Instantiate (Player, gameObject.transform.position, gameObject.transform.rotation);
         Destroy (transform.parent.gameObject);
 

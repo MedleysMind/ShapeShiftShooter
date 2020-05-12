@@ -5,6 +5,7 @@ using UnityEngine;
 public class CircleEnemy : MonoBehaviour
 {
     public GameObject explosion;
+    public AudioSource explosionSound;
     // public Transform Player;
     public int Circlehealth = 240;
     public int damage = 20;
@@ -38,6 +39,7 @@ public class CircleEnemy : MonoBehaviour
     void Die()
     {
         {
+            
             LightManager.lightPos = LightManager.lightPos + 60;
             ScoreKeeper.scoreValue += 100;
             ScoreKeeper.shapeList.Add(1);
@@ -49,6 +51,7 @@ public class CircleEnemy : MonoBehaviour
 
  private void OnTriggerEnter2D(Collider2D hitInfo)
     {
+        explosionSound.Play();
         PlayerManager PlayerManager = hitInfo.GetComponent<PlayerManager>();
         if (PlayerManager != null)
         {
