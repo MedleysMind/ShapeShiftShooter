@@ -11,7 +11,6 @@ using UnityEngine.SceneManagement;
 public class MenuButtons : MonoBehaviour {
     // private PlayerProgress playerProgress;
     public GameObject PauseMenu, HighscoreMenu, MainMenuUI, TutorialMenu, CreditMenu;
-    private GameObject creditsPanel;
     //Unity Ads
     string gameId = "3171681";
     //  bool testMode = true;
@@ -19,65 +18,74 @@ public class MenuButtons : MonoBehaviour {
         //  LoadPlayerProgress();
         //Unity Ads
         Advertisement.Initialize (gameId);
-
-        //    creditsPanel = GameObject.Find("Credits");
     }
-    public void Endless () {
+    public void Pause () {
+        if (PauseMenu.activeInHierarchy == false) {
+            PauseMenu.SetActive (true);
+            Time.timeScale = 0f;
+        } else {
+            PauseMenu.SetActive (false);
+            Time.timeScale = 1f;
+        }
+    }
+    public void EndlessMode () {
         Time.timeScale = 1f;
         SceneManager.LoadScene (1);
-
     }
-    public void EndLevel () {
-        //  Advertisement.Show();
-        SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
-    }
+    // Displays the High Score Window in the Main Menu
     public void HighScore () {
-        // LevelSelectMenu.SetActive (true);
-        Instantiate (HighscoreMenu);
-        Destroy (MainMenuUI);
-        // SceneManager.LoadScene(2);
+        if (HighscoreMenu.activeInHierarchy == false) {
+            //closes other windows if open
+            CreditMenu.SetActive (false);
+            TutorialMenu.SetActive (false);
+            //open high scores
+            HighscoreMenu.SetActive (true);
+
+        } else {
+            HighscoreMenu.SetActive (false);
+        }
     }
+    // Displays the Tutorial Window in the Main Menu
     public void Tutorial () {
-        // LevelSelectMenu.SetActive (true);
-        // Instantiate (TutorialMenu);
-        // SceneManager.LoadScene(2);
+        if (TutorialMenu.activeInHierarchy == false) {
+            //closes other windows if open
+            CreditMenu.SetActive (false);
+            HighscoreMenu.SetActive (false);
+            //open tutorial
+            TutorialMenu.SetActive (true);
+        } else {
+
+            TutorialMenu.SetActive (false);
+        }
     }
+    // Displays the Credits Window in the Main Menu
     public void Credit () {
+        if (CreditMenu.activeInHierarchy == false) {
+            //closes other windows if open
+            TutorialMenu.SetActive (false);
+            HighscoreMenu.SetActive (false);
+            //open credits
+            CreditMenu.SetActive (true);
+        } else {
+            CreditMenu.SetActive (false);
+        }
 
-        // Instantiate (CreditMenu);
-        // CreditMenu.SetActive (false);
-        // creditsPanel.SetActive (!false);
-
-    }
-    public void CloseHighScoremenu () {
-        Instantiate (MainMenuUI);
-        Destroy (HighscoreMenu);
     }
     public void BackToMenu () {
         // Advertisement.Show();
         SceneManager.LoadScene (0);
     }
-    public void Back () {
-        // Advertisement.Show();
-        SceneManager.LoadScene (1);
-    }
     public void ExitGame () {
         Application.Quit ();
     }
-    public void OpenMenu () {
-        if (PauseMenu != null) {
-            PauseMenu.SetActive (true);
-        }
-        Instantiate (PauseMenu);
-        Time.timeScale = 0f;
-    }
-    public void CloseMenu () {
-        if (PauseMenu == true) {
-            PauseMenu.SetActive (false);
-        }
-        Destroy (transform.parent.gameObject);
-        Time.timeScale = 1f;
-    }
+
+    // public void CloseMenu () {
+    //     if (PauseMenu == true) {
+    //         PauseMenu.SetActive (false);
+    //     }
+    //     Destroy (transform.parent.gameObject);
+    //     Time.timeScale = 1f;
+    // }
     /*   public void SubmitNewPlayerScore(int newScore)
     {
         if (newScore > playerProgress.highestScore)

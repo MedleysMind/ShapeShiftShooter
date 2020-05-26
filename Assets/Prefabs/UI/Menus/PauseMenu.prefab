@@ -121,7 +121,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2178087437648683925}
-        m_MethodName: CloseMenu
+        m_MethodName: Pause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -143,9 +143,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770ae16fc716bf149a767f4cbc77ce35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 0}
+  PauseMenu: {fileID: 3055799907310326809}
   HighscoreMenu: {fileID: 0}
   MainMenuUI: {fileID: 0}
+  TutorialMenu: {fileID: 0}
+  CreditMenu: {fileID: 0}
 --- !u!1 &1392139777619532663
 GameObject:
   m_ObjectHideFlags: 0

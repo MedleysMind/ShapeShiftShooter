@@ -12,7 +12,7 @@ public class SwapButton : MonoBehaviour
     public void CharSwap()
     {
         //checks time
-        if (Time.time >= timestamp)
+        if (Time.time >= timestamp && PlayerManager.dead == false)
         {
             Swap();          
         }

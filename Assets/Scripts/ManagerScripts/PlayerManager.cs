@@ -12,17 +12,17 @@ public class PlayerManager : MonoBehaviour {
     public int health = 10;
     public float moveSpeed = 0.1f;
 
-void Start()    {
-    screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-}
+    void Start () {
+        screenBounds = Camera.main.ScreenToWorldPoint (new Vector3 (Screen.width, Screen.height, Camera.main.transform.position.z));
+    }
     void Update () {
         playerMovement ();
         playerPos = transform.position;
     }
-    void LateUpdate(){
-        // newPos = Mathf.Clamp(newPos.x, screenBounds.x, screenBounds.x * -1);
-        // transform.position = newPos;
-    }
+    // void LateUpdate () {
+    //     // newPos = Mathf.Clamp(newPos.x, screenBounds.x, screenBounds.x * -1);
+    //     // transform.position = newPos;
+    // }
     //Health System
     public void TakeDamage (int damage) {
         health -= damage;
@@ -33,20 +33,21 @@ void Start()    {
         }
     }
     public void PlayerDeath () {
-        explosionSound.Play();
+        explosionSound.Play ();
         Instantiate (explosion, gameObject.transform.position, gameObject.transform.rotation);
         Destroy (gameObject);
         dead = true;
     }
+    private LayerMask layer;
     public void playerMovement () {
 
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint (mousePosition);
         // transform.position = new Vector2 (mousePosition.x,transform.position.y);
-        newPos = new Vector2 (mousePosition.x,transform.position.y);
-        transform.position =  Vector2.Lerp (transform.position,newPos, moveSpeed);
 
-        
+        newPos = new Vector2 (mousePosition.x, transform.position.y);
+        transform.position = Vector2.Lerp (transform.position, newPos, moveSpeed);
+
         // if (transform.position.y < -5575 || transform.position.y > -5300) {
         //   transform.position =  new Vector2(playerPos.x, -5575);
         // }

@@ -6,6 +6,7 @@ public class TextDestroyer : MonoBehaviour
 {
     
     public float lifetime;
+    public GameObject NextText;
 
     private void Start()
     {
@@ -17,7 +18,9 @@ public class TextDestroyer : MonoBehaviour
     }
 
     public void create()
-    { }
+    {
+        NextText.SetActive (true);
+     }
     
 
 

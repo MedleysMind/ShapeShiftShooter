@@ -29,13 +29,15 @@ public class GameOver : MonoBehaviour {
         //Time.timeScale = 1f;
         Destroy (gameObject);
     }
+    public static bool restarted;
     public void Restart () {
         GamePlayManager.restartCount++;
         if (GamePlayManager.restartCount == 3) {
+            // Reset Restart counter
             GamePlayManager.restartCount = 0;
-            Advertisement.Show ();
-            // Time.timeScale = 1f;
-            // SceneManager.LoadScene (1);
+            // Allows logic to check if ad has finished
+            var options = new ShowOptions { resultCallback = HandleShowResult };
+            Advertisement.Show (options);
         } else {
 
             Time.timeScale = 1f;
@@ -43,17 +45,38 @@ public class GameOver : MonoBehaviour {
         }
 
     }
-    // public void Restart2 () {
-    //     SceneManager.LoadScene (1);
-    // }
+    // Checks to see if Ad has finished then runs appropriate logic
+    private void HandleShowResult (ShowResult result) {
+        switch (result) {
+            case ShowResult.Finished:
+                Debug.Log ("The ad was successfully shown.");
+                //
+                AdReset ();
+                // YOUR CODE TO REWARD THE GAMER
+                // Give coins etc.
+                break;
+            case ShowResult.Skipped:
+                Debug.Log ("The ad was skipped before reaching the end.");
+                break;
+            case ShowResult.Failed:
+                Debug.LogError ("The ad failed to be shown.");
+                break;
+        }
+    }
+    public void AdReset () {
+        SceneManager.LoadScene (1);
+        Time.timeScale = 1f;
+        restarted = true;
+    }
     private GameObject enemy;
     public void KeepGoing () {
-        Advertisement.Show ();
+        // Allows logic to check if ad has finished
+        var options = new ShowOptions { resultCallback = HandleShowResult };
+        Advertisement.Show (options);
+        Destroy (GameObject.FindGameObjectWithTag ("Enemy"));
         Time.timeScale = 1f;
-        GameObject.FindGameObjectWithTag ("Enemy");
-        //    Destroy();
-        Instantiate (Player, gameObject.transform.position, gameObject.transform.rotation);
         Destroy (transform.parent.gameObject);
+        Instantiate (Player, gameObject.transform.position, gameObject.transform.rotation);
 
     }
     public void BackToMain () {
