@@ -26,7 +26,7 @@ public class SwapButton : MonoBehaviour
             Destroy(GameObject.Find("Hex Player(Clone)"));
             Destroy(GameObject.Find("Square Player(Clone)"));
             //calls new player char to spawn
-            Instantiate(player, PlayerManager.playerPos, Quaternion.identity);
+            Instantiate(player, PlayerManager.newPos, Quaternion.identity);
         }
 
     }

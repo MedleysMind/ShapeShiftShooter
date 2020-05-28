@@ -35,6 +35,9 @@ public class GameOver : MonoBehaviour {
         if (GamePlayManager.restartCount == 3) {
             // Reset Restart counter
             GamePlayManager.restartCount = 0;
+            // Reload Scene
+            SceneManager.LoadScene (1);
+            Time.timeScale = 0f;
             // Allows logic to check if ad has finished
             var options = new ShowOptions { resultCallback = HandleShowResult };
             Advertisement.Show (options);
@@ -64,7 +67,6 @@ public class GameOver : MonoBehaviour {
         }
     }
     public void AdReset () {
-        SceneManager.LoadScene (1);
         Time.timeScale = 1f;
         restarted = true;
     }

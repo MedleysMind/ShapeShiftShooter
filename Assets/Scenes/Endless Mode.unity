@@ -1228,6 +1228,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 155927790}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1485185974 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1411247969265134453, guid: 8c24891fc4d821847866d8908d3bf64c,
+    type: 3}
+  m_PrefabInstance: {fileID: 155927790}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1485185975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1242,7 +1248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 8460720924773378720, guid: 83cb434e2bc8546479ba46ca666d1e7a,
     type: 3}
-  explosionSound: {fileID: 0}
+  explosionSound: {fileID: 1485185974}
   health: 10
   moveSpeed: 0.1
 --- !u!1 &1533998576
@@ -2356,9 +2362,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 50cbdc54221e7ab4391998a0df3b13b8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f5fe5c8c4ebd555419a690da838ae3e3, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.03
+  m_Volume: 0.24
   m_Pitch: 1
   Loop: 1
   Mute: 0

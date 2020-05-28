@@ -159,7 +159,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.09, y: 2.09}
+    oldSize: {x: 0.98, y: 0.98}
     newSize: {x: 5.48, y: 5.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -357,7 +357,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3e04c3bd6f14bc549b864649e3cfef82, type: 3}
+  m_audioClip: {fileID: 8300000, guid: cdbef993f3b55584f886f43d6e8f06cd, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 3
